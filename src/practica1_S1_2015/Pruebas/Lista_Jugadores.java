@@ -3,20 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package practica1_S1_2015;
+package practica1_S1_2015.Pruebas;
 
 /**
  *
  * @author Usuario
  */
-public class Nodo_REgitro_Estudiante {
-    String Nombre;
-    String Edad;
-    
-    String NodoCompleto = this.Nombre;
-
-
-    
-    
+public class Lista_Jugadores {
     
 }
