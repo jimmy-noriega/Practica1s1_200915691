@@ -6,14 +6,16 @@
 package practica1_S1_2015;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 /**
  *
  * @author Usuario
  */
-public class Usuario_Planta extends javax.swing.JFrame {
+public class Usuario_Planta extends JFrame {
     Integer Contador=3;
+    Nodo_Usuario Usuario= new Nodo_Usuario();
 
     /**
      * Creates new form Usuario_Zombie
