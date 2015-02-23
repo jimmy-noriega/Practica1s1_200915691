@@ -89,9 +89,9 @@ public class Pagina_Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       PanelJuego dg = null;
+       Intermediario dg = null;
         try {
-            dg = new PanelJuego();
+            dg = new Intermediario();
         } catch (Exception ex) {
             Logger.getLogger(Pagina_Inicio.class.getName()
             ).log(Level.SEVERE, null, ex);

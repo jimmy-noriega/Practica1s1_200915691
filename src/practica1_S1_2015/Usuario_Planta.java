@@ -5,17 +5,20 @@
  */
 package practica1_S1_2015;
 
-import javax.swing.JButton;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Usuario
- */
+
+
+
 public class Usuario_Planta extends JFrame {
     Integer Contador=3;
-    Nodo_Usuario Usuario= new Nodo_Usuario();
+    Integer ContadorUsuario=0;
+     Metodos_Cola cola = new  Metodos_Cola();
+    String usuario="";
 
     /**
      * Creates new form Usuario_Zombie
@@ -50,6 +53,7 @@ public class Usuario_Planta extends JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(153, 255, 102));
@@ -93,6 +97,8 @@ public class Usuario_Planta extends JFrame {
 
         jLabel6.setText("Ataque_Disparo");
 
+        jTextField4.setText("jTextField4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,7 +137,8 @@ public class Usuario_Planta extends JFrame {
                                     .addComponent(jLabel4)))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTextField4))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -164,7 +171,9 @@ public class Usuario_Planta extends JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
-                .addGap(0, 56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -172,12 +181,46 @@ public class Usuario_Planta extends JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         AgregarTexto();
+        cola.sacarnodo();
+        System.out.println("hol+");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     this.dispose();
+     capturarusuario();
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void capturarusuario(){
+       usuario= "1 ,"+this.jTextField1.getText()+","+this.jTextField2.getText()+","+this.jTextField3.getText()+","+ String.valueOf(ContadorUsuario) ;
+     //  UsuarioPlanta.add(usuario);
+       cola.insertarnodo(usuario);
+        this.jTextField1.setText("");
+        this.jTextField2.setText("");
+        this.jTextField3.setText("");
+       
+        ContadorUsuario=ContadorUsuario+1; 
+        this.jTextField4.setText("");
+         System.out.println("nodo:" +cola);
+    }
+    
+    public void traslado(){
+      Pagina_Inicio dg = null;
+        try {
+            dg = new Pagina_Inicio();
+        } catch (Exception ex) {
+            Logger.getLogger(Usuario_Planta.class.getName()
+            ).log(Level.SEVERE, null, ex);
+        }
+     
+        dg.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+    } 
+    
+    
+    
+    
+    
+    
     
     public void AgregarTexto(){
         if (Contador<8){
@@ -248,5 +291,6 @@ public class Usuario_Planta extends JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
